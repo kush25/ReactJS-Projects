@@ -1,0 +1,76 @@
+
+While importing the CSS file, we can simply do, import "./styles.css" because it is a normal css file and not JavaScript.
+
+In React all JS attributes are written as camelcase so onclick() => onClick() in react.
+
+In JSX anything that is JavaScript is written in {}.
+
+Instead of passing increment as method in event onClick pass as reference like do
+onClick ={increment}
+
+Ok, so now if we create a class component instead of function component then we can include the function inside the class itself instead of declaring it globally.
+And when we declare the function inside the class we do not require function keyword.
+and function is called with this.functionname.
+
+
+So instead of this:
+function CounterApp(){
+
+    return(
+
+        <div className="counter">
+        <button onClick={increment} +1</button>
+
+           <span className="spnctr">0</span>
+
+        </div>
+    )
+
+}
+
+function increment(){
+    console.log('increment');
+ 
+}
+
+
+Do this,
+
+import React,{Component} from 'react'
+import "./counter.css"
+
+class CounterApp extends Component{
+render(){
+        return(
+
+            <div className="counter">
+            <button onClick={this.increment}>+1</button>
+
+            <span className="spnctr">0</span>
+
+            </div>
+        )
+        
+    }
+
+    increment(){
+        console.log('increment');
+      
+    }
+}
+
+
+Now states:
+Define initial states in a constructor
+In constructor before you use anything please declare super();
+
+constructor (){
+super(); =>  //Mandatory
+this.state ={...}
+}
+
+when we want a function inconnection to constructor to perform we need to define it with constructor and bind it, like
+this.funcname = this.funcname.bind(this)
+
+always set the state to use a state never declare it directly.
+
