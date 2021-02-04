@@ -10,7 +10,7 @@ class CounterApp extends Component{
             ctr : 0
         }
 
-        this.increment = this.increment.bind(this)
+       // this.increment = this.increment.bind(this)
 
     }
 
@@ -18,7 +18,7 @@ render(){
         return(
 
             <div className="counter">
-            <button onClick={this.increment}>+1</button>
+            <button onClick={this.increment}>+{this.props.by}</button>
 
             <span className="spnctr">{this.state.ctr}</span>
 
@@ -27,13 +27,13 @@ render(){
         
     }
 
-    increment(){
+    increment = () => {
       // this.state.counter++;  //Bad Practice.
 
       this.setState(
 
             {
-                ctr: this.state.ctr+1
+                ctr: this.state.ctr + this.props.by
 
             }
 
