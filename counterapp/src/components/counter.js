@@ -1,5 +1,6 @@
 
 import React,{Component} from 'react'
+import PropTypes from 'prop-types'
 import "./counter.css"
 
 class CounterApp extends Component{
@@ -42,6 +43,17 @@ render(){
     }
 }
 
+
+CounterApp.defaultProps = {
+
+    by:1
+
+}
+
+CounterApp.propTypes= {
+    by : PropTypes.number
+
+}
 
 
 export default CounterApp
